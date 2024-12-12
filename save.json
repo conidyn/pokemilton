@@ -1,0 +1,93 @@
+{
+  "saved_on": "2024-12-11T20:07:11.187Z",
+  "PokemiltonMaster": {
+    "name": "coni",
+    "pokemiltonCollection": [
+      {
+        "name": "tinett",
+        "level": 1,
+        "experienceMeter": 0,
+        "attackRange": 4,
+        "defenseRange": 2,
+        "healthPool": 12,
+        "maxHealthPool": 18,
+        "catchPhrase": "tinett! tinett! is ready to roll!"
+      },
+      {
+        "name": "Cédtt",
+        "level": 1,
+        "experienceMeter": 0,
+        "attackRange": 7,
+        "defenseRange": 3,
+        "healthPool": 3,
+        "maxHealthPool": 11,
+        "catchPhrase": "Cédtt! Cédtt! is ready to roll!"
+      },
+      {
+        "name": "Robré",
+        "level": 1,
+        "experienceMeter": 0,
+        "attackRange": 4,
+        "defenseRange": 1,
+        "healthPool": 21,
+        "maxHealthPool": 21,
+        "catchPhrase": "Robré! Robré! is ready to roll!"
+      },
+      {
+        "name": "Jaântin",
+        "level": 1,
+        "experienceMeter": 0,
+        "attackRange": 3,
+        "defenseRange": 1,
+        "healthPool": 12,
+        "maxHealthPool": 12,
+        "catchPhrase": "Jaântin! Jaântin! is ready to roll!"
+      },
+      {
+        "name": "calNic",
+        "level": 1,
+        "experienceMeter": 0,
+        "attackRange": 4,
+        "defenseRange": 1,
+        "healthPool": 14,
+        "maxHealthPool": 20,
+        "catchPhrase": "calNic! calNic! is ready to roll!"
+      },
+      {
+        "name": "déricCéd",
+        "level": 1,
+        "experienceMeter": 0,
+        "attackRange": 5,
+        "defenseRange": 2,
+        "healthPool": 7,
+        "maxHealthPool": 26,
+        "catchPhrase": "déricCéd! déricCéd! is ready to roll!"
+      },
+      {
+        "name": "Frérlotte",
+        "level": 1,
+        "experienceMeter": 0,
+        "attackRange": 2,
+        "defenseRange": 3,
+        "healthPool": 21,
+        "maxHealthPool": 21,
+        "catchPhrase": "Frérlotte! Frérlotte! is ready to roll!"
+      },
+      {
+        "name": "CédEmm",
+        "level": 1,
+        "experienceMeter": 0,
+        "attackRange": 3,
+        "defenseRange": 3,
+        "healthPool": 14,
+        "maxHealthPool": 20,
+        "catchPhrase": "CédEmm! CédEmm! is ready to roll!"
+      }
+    ],
+    "healingItems": 81,
+    "reviveItems": 12,
+    "POKEBALLS": 77
+  },
+  "day": 300,
+  "logs": []
+}
