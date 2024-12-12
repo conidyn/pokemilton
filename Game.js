@@ -1,4 +1,4 @@
-const readlineSync = require('readline-sync'); // Utilisation de readline-sync pour gérer les entrées utilisateur
+const InputHandler = require('./InputHandler'); 
 const PokemiltonMaster = require('./PokemiltonMaster'); // Classe représentant le joueur
 const PokemiltonWorld = require('./PokemiltonWorld'); // Classe représentant le monde du jeu
 const Pokemilton = require('./Pokemilton'); // Import de la classe Pokemilton™
@@ -13,7 +13,7 @@ function initializeNewGame() {
   console.log("Let's start a new adventure!");
 
   // Demande au joueur son nom
-  const name = readlineSync.question("What's your name, Pokemilton™ Master? ");
+  const name = InputHandler.getTextInput("What's your name, Pokemilton™ Master? ");
   const master = new PokemiltonMaster(name); // Crée une instance du joueur
   const world = new PokemiltonWorld(); // Crée une instance du monde
 
@@ -29,10 +29,7 @@ function initializeNewGame() {
   });
 
   // Demande au joueur de sélectionner un Pokemilton™
-  const choice = readlineSync.questionInt("Enter the number of your choice: ", {
-    limit: [1, 2, 3],
-    limitMessage: "Invalid choice. Please select 1, 2, or 3.",
-  });
+  const choice = InputHandler.getNumberInput("Enter the number of your choice: ", [1, 2, 3], "Invalid choice. Please select 1, 2, or 3.");
 
   const chosenPokemilton = options[choice - 1]; // Sélectionne le Pokemilton choisi
   master.pokemiltonCollection.push(chosenPokemilton); // Ajoute le Pokemilton à la collection
@@ -51,7 +48,7 @@ function startGame() {
 
   // Vérifie si un fichier de sauvegarde existe
   if (fs.existsSync(saveFile)) {
-    const loadGame = readlineSync.question("Do you want to load the previous game? [y/n]: ").toLowerCase();
+    const loadGame = InputHandler.getTextInput("Do you want to load the previous game? [y/n]: ").toLowerCase();
     if (loadGame === 'y') {
       try {
         const savedData = JSON.parse(fs.readFileSync(saveFile, 'utf-8')); // Lit le fichier JSON
@@ -78,10 +75,7 @@ function startGame() {
     console.log("3. Save and exit");
 
     // Demande au joueur son choix
-    const choice = readlineSync.questionInt("Enter the number of your choice: ", {
-      limit: [1, 2, 3],
-      limitMessage: "Invalid choice. Please select 1, 2, or 3.",
-    });
+    const choice = InputHandler.getNumberInput("Enter the number of your choice: ", [1, 2, 3], "Invalid choice. Please select 1, 2, or 3.");
 
     if (choice === 1) {
       showCollectionWithOptions(master); // Affiche la collection avec les options disponibles
@@ -113,10 +107,7 @@ function showCollectionWithOptions(master) {
   console.log("3. View items");
   console.log("4. Go back");
 
-  const action = readlineSync.questionInt("Enter your choice: ", {
-    limit: [1, 2, 3, 4],
-    limitMessage: "Invalid choice. Please select 1, 2, 3 or 4.",
-  });
+  const action = InputHandler.getNumberInput("Enter your choice: ", [1, 2, 3, 4], "Invalid choice. Please select 1, 2, 3 or 4.");
 
   if (action === 1) {
     if (master.healingItems > 0) {
@@ -128,10 +119,8 @@ function showCollectionWithOptions(master) {
         damagedPokemiltons.forEach((pokemilton, index) => {
           console.log(`${index + 1}. ${pokemilton.name} (Health: ${pokemilton.healthPool}/${pokemilton.maxHealthPool})`);
         });
-      const choice = readlineSync.questionInt("Choose a Pokemilton™ to heal (enter number): ", {
-        limit: Array.from({ length: master.pokemiltonCollection.length }, (_, i) => i + 1),
-        limitMessage: "Invalid choice. Please select a valid number.",
-      });
+        const choice = InputHandler.getNumberInput("Choose a Pokemilton™ to heal (enter number): ", Array.from({ length: master.pokemiltonCollection.length },
+           (_, i) => i + 1), "Invalid choice. Please select a valid number.");
       const selectedPokemilton = master.pokemiltonCollection[choice - 1];
       master.healPokemilton(selectedPokemilton); // Soigne le Pokemilton sélectionné
     } else {
@@ -146,10 +135,8 @@ function showCollectionWithOptions(master) {
         faintedPokemiltons.forEach((pokemilton, index) => {
           console.log(`${index + 1}. ${pokemilton.name}`);
         });
-        const choice = readlineSync.questionInt("Choose a Pokemilton™ to revive (enter number): ", {
-          limit: Array.from({ length: faintedPokemiltons.length }, (_, i) => i + 1),
-          limitMessage: "Invalid choice. Please select a valid number.",
-        });
+        const choice = InputHandler.getNumberInput("Choose a Pokemilton™ to revive (enter number): ", 
+          Array.from({ length: faintedPokemiltons.length }, (_, i) => i + 1), "Invalid choice. Please select a valid number.");
         const selectedPokemilton = faintedPokemiltons[choice - 1];
         master.revivePokemilton(selectedPokemilton); // Ressuscite le Pokemilton sélectionné
       } else {
@@ -177,9 +164,9 @@ function viewItems(master, callback) {
     console.log(`- Revive items: ${master.reviveItems}`);
     console.log(`- Pokeballs: ${master.POKEBALLS}`);
 
-    const choice = readlineSync.questionInt(
+    const choice = InputHandler.getNumberInput(
       "\nWhat would you like to do?\n1. Back\nEnter your choice: ",
-      { limit: [1], limitMessage: "Invalid choice. Please select 1 to go back." }
+      [1], "Invalid choice. Please select 1 to go back."
     );
 
     if (choice === 1) {

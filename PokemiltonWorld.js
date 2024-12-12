@@ -1,4 +1,4 @@
-const readlineSync = require("readline-sync"); // Importe readlineSync pour interagir avec l'utilisateur
+const InputHandler = require("./InputHandler"); 
 const PokemiltonArena = require("./PokemiltonArena");
 const Pokemilton = require("./Pokemilton");
 
@@ -49,8 +49,10 @@ class PokemiltonWorld {
       );
       console.log(`${wildPokemilton.catchPhrase}`);
 
-      const choice = readlineSync.questionInt(
-        "What do you want to do?\n1. Fight\n2. Capture\n3. Run\nEnter your choice: "
+      const choice = InputHandler.getNumberInput(
+        "What do you want to do?\n1. Fight\n2. Capture\n3. Run\nEnter your choice: ",
+        [1, 2, 3],
+        "Invalid choice. Please select 1, 2, or 3."
       ); // Récupère le choix du joueur
 
       switch (choice) {

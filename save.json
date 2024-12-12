@@ -1,5 +1,5 @@
 {
-  "saved_on": "2024-12-11T20:07:11.187Z",
+  "saved_on": "2024-12-12T21:03:16.038Z",
   "PokemiltonMaster": {
     "name": "coni",
     "pokemiltonCollection": [
@@ -85,9 +85,9 @@
       }
     ],
     "healingItems": 81,
-    "reviveItems": 12,
-    "POKEBALLS": 77
+    "reviveItems": 14,
+    "POKEBALLS": 78
   },
-  "day": 300,
+  "day": 307,
   "logs": []
 }

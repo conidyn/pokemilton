@@ -1,4 +1,4 @@
-const readlineSync = require("readline-sync"); // Importe readlineSync pour interagir avec l'utilisateur
+const InputHandler = require("./InputHandler"); 
 /**
  * Classe représentant une arène de combat pour Pokemiltons™.
  */
@@ -38,8 +38,10 @@ class PokemiltonArena {
       console.log(`The battle begins!`);
       this.master.showCollection();
   
-      const chosenIndex = readlineSync.questionInt(
-        "Choose a Pokemilton™ to fight (enter the number): "
+      const chosenIndex = InputHandler.getNumberInput(
+        "Choose a Pokemilton™ to fight (enter the number): ",
+        Array.from({ length: this.master.pokemiltonCollection.length }, (_, i) => i + 1),
+        "Invalid choice. Please select a valid number."
       ) - 1;
   
       const playerPokemilton = this.master.pokemiltonCollection[chosenIndex];
@@ -50,8 +52,10 @@ class PokemiltonArena {
       let running = true;
   
       while (running) {
-        const action = readlineSync.questionInt(
-          "What do you want to do?\n1. Attack\n2. Try to catch\n3. Run away\nEnter your choice: "
+        const action = InputHandler.getNumberInput(
+          "What do you want to do?\n1. Attack\n2. Try to catch\n3. Run away\nEnter your choice: ",
+          [1, 2, 3],
+          "Invalid choice. Please select 1, 2, or 3."
         );
   
         switch (action) {
