@@ -1,5 +1,5 @@
 {
-  "saved_on": "2024-12-12T21:03:16.038Z",
+  "saved_on": "2024-12-13T08:35:18.271Z",
   "PokemiltonMaster": {
     "name": "coni",
     "pokemiltonCollection": [
@@ -9,7 +9,7 @@
         "experienceMeter": 0,
         "attackRange": 4,
         "defenseRange": 2,
-        "healthPool": 12,
+        "healthPool": 18,
         "maxHealthPool": 18,
         "catchPhrase": "tinett! tinett! is ready to roll!"
       },
@@ -19,7 +19,7 @@
         "experienceMeter": 0,
         "attackRange": 7,
         "defenseRange": 3,
-        "healthPool": 3,
+        "healthPool": 11,
         "maxHealthPool": 11,
         "catchPhrase": "Cédtt! Cédtt! is ready to roll!"
       },
@@ -84,7 +84,7 @@
         "catchPhrase": "CédEmm! CédEmm! is ready to roll!"
       }
     ],
-    "healingItems": 81,
+    "healingItems": 65,
     "reviveItems": 14,
     "POKEBALLS": 78
   },
